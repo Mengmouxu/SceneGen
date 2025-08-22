@@ -10,7 +10,7 @@ Please stay tuned! Feel free to reach out for discussions!
 </div>
 
 ## Some Information
-[Project Page](https://mengmouxu.github.io/SceneGen/) $\cdot$ [Paper](https://arxiv.org/) $\cdot$ [Checkpoints](https://huggingface.co/)
+[Project Page](https://mengmouxu.github.io/SceneGen/) $\cdot$ [Paper](https://arxiv.org/abs/2508.15769/) $\cdot$ [Checkpoints](https://huggingface.co/)
 
 ## News
 - [2025.8] Our pre-print paper is released on arXiv.
