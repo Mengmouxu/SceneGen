@@ -1,5 +1,5 @@
 # SceneGen: Single-Image 3D Scene Generation in One Feedforward Pass
-This repository contains the official PyTorch implementation of SceneGen: https://arxiv.org/.
+This repository contains the official PyTorch implementation of SceneGen: https://arxiv.org/2508.15769/.
 
 
 The codes and models will be gradually open-sourced!
@@ -45,12 +45,12 @@ If you use this code and data for your research or project, please cite:
     @article{meng2025scenegen,
       author    = {Meng, Yanxu and Wu, Haoning and Zhang, Ya and Xie, Weidi},
       title     = {SceneGen: Single-Image 3D Scene Generation in One Feedforward Pass},
-      journal   = {arXiv preprint arXiv:2508.xxxxx},
+      journal   = {arXiv preprint arXiv:2508.15769},
       year      = {2025},
     }
 
 ## TODO
-- [ ] Release Paper
+- [x] Release Paper
 - [ ] Release Checkpoints & Inference Code
 - [ ] Release Training Code
 - [ ] Release Evaluation Code
