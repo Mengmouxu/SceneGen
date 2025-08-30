@@ -59,6 +59,7 @@ We provide two scripts for inference: `inference.py` for batch processing and `i
 
 ### Interactive Demo
 This script launches a Gradio web interface for interactive scene generation.
+
 - **Features**: It uses SAM2 for interactive image segmentation, allows for adjusting various generation parameters, and supports scene generation from single or multiple images.
 - **Usage**:
   ```sh
@@ -83,6 +84,12 @@ This script launches a Gradio web interface for interactive scene generation.
   > 3.  Download the generated GLB file when ready.
   >
   > **💡 Pro Tip:**  Try the examples below to get started quickly!
+
+
+https://github.com/user-attachments/assets/d0d53506-70cd-4bd3-a6ab-2f9b5b16f4d8
+
+
+*Click the image above to watch the demo video*
 
 ### Pre-segmented Image Inference
 This script processes a directory of pre-segmented images.
