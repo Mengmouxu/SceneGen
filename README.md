@@ -14,6 +14,7 @@ This repository contains the official PyTorch implementation of SceneGen: https:
 ## ⏩ News
 - [2025.8] The inference code and checkpoints are released.
 - [2025.8] Our pre-print paper has been released on arXiv.
+- [2025.9] Our training code with configs and data processing code are released.
 
 ## 📦 Installation & Pretrained Models
 
@@ -141,8 +142,8 @@ If you use this code and data for your research or project, please cite:
 - [x] Release Paper
 - [x] Release Checkpoints & Inference Code
 - [x] Release Training Code
-- [x] Release Evaluation Code
-- [ ] Release Data Processing Code
+- [x] Release Data Processing Code
+- [ ] Release Evaluation Code
 
 ## Acknowledgements
 Many thanks to the code bases from [TRELLIS](https://github.com/microsoft/TRELLIS), [DINOv2](https://github.com/facebookresearch/dinov2), and [VGGT](https://github.com/facebookresearch/vggt).
