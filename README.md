@@ -101,10 +101,28 @@ This script processes a directory of pre-segmented images.
   ```
 
 ## 📚 Dataset
-To be updated soon...
-
+To train and evaluate SceneGen, we use the [3D-FUTURE](https://tianchi.aliyun.com/dataset/98063) dataset. Please download and preprocess the dataset as follows:
+1. Download the 3D-FUTURE dataset from [here](https://tianchi.aliyun.com/dataset/98063) which requires applying for access.
+2. Follow the [TRELLIS](https://github.com/microsoft/TRELLIS) data processing instructions to preprocess the dataset. Make sure to follow their directory structure for compatibility and fully generate the necessary files and ``metadata.csv``.
+3. Run the ``dataset_toolkits/build_metadata_scene.py`` script to create the scene-level metadata file:
+    ```sh
+    python dataset_toolkits/build_metadata_scene.py 3D-FUTURE 
+    --output_dir <path_to_3D-FUTURE> 
+    --set <train or test> 
+    --vggt_ckpt checkpoints/VGGT-1B --save_mask
+    ```
+    This will generate a `metadata_scene.csv` file or a `metadata_scene_test.csv` file in the specified dataset directory.
+4. For evaluation, run the ``dataset_toolkits/build_scene.sh`` script to render scene image for each scene(with Blender installed and the configs in the script set correctly):
+    ```sh
+    bash dataset_toolkits/build_scene.sh
+    ```
+    This will create a `scene_test_render` folder in the dataset directory containing the rendered images of the test scenes with Blender, which will be further used for evaluation.
 ## 🏋️‍♂️ Training
-To be updated soon...
+With the processed 3D-FUTURE dataset and the pretrained `ss_flow_img_dit_L_16l8_fp16.safetensors` model checkpoint from [TRELLIS](https://huggingface.co/microsoft/TRELLIS-image-large) correctly placed in the `checkpoints/scenegen/ckpts` directory, you can train SceneGen using the following command:
+```
+bash scripts/train.sh
+```
+For detailed training configurations, please refer to `configs/generation/ss_scenegen_flow_img_train.json` and change the parameters as needed.
 
 ## Evaluation
 To be updated soon...
@@ -122,8 +140,8 @@ If you use this code and data for your research or project, please cite:
 ## TODO
 - [x] Release Paper
 - [x] Release Checkpoints & Inference Code
-- [ ] Release Training Code
-- [ ] Release Evaluation Code
+- [x] Release Training Code
+- [x] Release Evaluation Code
 - [ ] Release Data Processing Code
 
 ## Acknowledgements

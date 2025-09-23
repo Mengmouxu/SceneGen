@@ -1,0 +1,117 @@
+{
+    "models": {
+        "denoiser": {
+            "name": "SparseStructureFlowModel",
+            "args": {
+                "resolution": 16,
+                "in_channels": 8,
+                "out_channels": 8,
+                "model_channels": 1024,
+                "cond_channels": 1024,
+                "num_blocks": 24,
+                "num_heads": 16,
+                "mlp_ratio": 4,
+                "patch_size": 1,
+                "pe_mode": "ape",
+                "qk_rms_norm": true,
+                "use_fp16": true,
+                "use_checkpoint": false,
+                "use_global": true,
+                "trunk_depth": 4,
+                "num_iteration": 4,
+                "use_batch_encoder": false
+            }
+        }
+    },
+    "dataset": {
+        "name": "ImageConditionedSparseStructureLatentVGGT",
+        "args": {
+            "data_file_name": "metadata_scene",
+            "max_batch_size": 16,
+            "max_gpu_batch_size": 7,
+            "latent_model": "ss_enc_conv3d_16l8_fp16",
+            "min_aesthetic_score": 4.5,
+            "image_size": 518,
+            "pretrained_ss_dec": "./checkpoints/scenegen/ckpts/ss_dec_conv3d_16l8_fp16",
+            "use_single_asset": false
+        }
+    },
+    "trainer": {
+        "name": "ImageConditionedVGGTFlowMatchingCFGTrainer",
+        "args": {
+            "max_steps": 1000000,
+            "batch_size": 128,
+            "batch_split": 1,
+            "optimizer": {
+                "name": "AdamW",
+                "args": {
+                    "lr": 0.00005,
+                    "weight_decay": 0.0
+                },
+                "param_groups": [
+                    {
+                        "regex": "position_head",
+                        "lr": 0.00005
+                    },
+                    {
+                        "regex": "position_token|register_token",
+                        "lr": 0.00005
+                    },
+                    {
+                        "regex": "global_attn|global_cross_attn|adaLN_modulation_global",
+                        "lr": 0.00005
+                    }
+                ]
+            },
+            "ema_rate": [
+                0.9999
+            ],
+            "fp16_mode": "inflat_all",
+            "fp16_scale_growth": 0.005,
+            "grad_clip": {
+                "name": "AdaptiveGradClipper",
+                "args": {
+                    "max_norm": 1.0,
+                    "clip_percentile": 95
+                }
+            },
+            "finetune_ckpt":{
+                "denoiser": "./checkpoints/scenegen/ckpts/ss_flow_img_dit_L_16l8_fp16.safetensors"
+            },
+            "i_print": 50,
+            "i_log": 50,
+            "i_sample": 10000,
+            "i_save": 50000,
+            "p_uncond": 0.1,
+            "t_schedule": {
+                "name": "logitNormal",
+                "args": {
+                    "mean": 1.0,
+                    "std": 1.0
+                }
+            },
+            "sigma_min": 1e-5,
+            "image_cond_model": "dinov2_vitl14_reg",
+            "unfreeze_weights": [
+            "global_attn",
+            "global_cross_attn",
+            "adaLN_modulation_global",
+            "position_token",
+            "register_token",
+            "position_head"
+            ],
+            "smooth_scale": 0.02,
+            "collision_smooth_scale": 0.05,
+            "trans_weight": 7,
+            "rot_weight": 5,
+            "scale_weight": 3,
+            "position_weight_min_ratio": 0.2,
+            "position_weight_max_ratio": 1.0,
+            "use_collision_loss": true,
+            "collision_loss_weight": 1,
+            "collision_resolution": 64,
+            "pretrained_ss_dec": "./checkpoints/scenegen/ckpts/ss_dec_conv3d_16l8_fp16",
+            "init_global_params": false
+        }
+    }
+}
