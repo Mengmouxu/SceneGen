@@ -1,8 +1,8 @@
 # <img src="./assets/icon.png" height="32" style="vertical-align:middle;"> SceneGen: Single-Image 3D Scene Generation in One Feedforward Pass
 
-This repository contains the official PyTorch implementation of SceneGen: https://arxiv.org/abs/2508.15769/. Feel free to reach out for discussions! 
+This repository contains the official PyTorch implementation of SceneGen: https://arxiv.org/abs/2508.15769/. 
 
-**Now the Inference Code and Pretrained Models are released!**
+**Now the Training, Inference Code and Pretrained Models have all been released! Feel free to reach out for discussions!**
 
 <div align="center">
    <img src="./assets/SceneGen.png">
@@ -12,9 +12,9 @@ This repository contains the official PyTorch implementation of SceneGen: https:
 [Project Page](https://mengmouxu.github.io/SceneGen/) $\cdot$ [Paper](https://arxiv.org/abs/2508.15769/) $\cdot$ [Checkpoints](https://huggingface.co/haoningwu/SceneGen/)
 
 ## ⏩ News
+- [2025.9] Our training code with configs and data processing code are released.
 - [2025.8] The inference code and checkpoints are released.
 - [2025.8] Our pre-print paper has been released on arXiv.
-- [2025.9] Our training code with configs and data processing code are released.
 
 ## 📦 Installation & Pretrained Models
 
