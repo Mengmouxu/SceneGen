@@ -1,4 +1,4 @@
-# <img src="./assets/icon.png" height="32" style="vertical-align:middle;"> SceneGen: Single-Image 3D Scene Generation in One Feedforward Pass
+# <img src="./assets/icon.png" height="32" style="vertical-align:middle;"> SceneGen: Single-Image 3D Scene Generation in One Feedforward Pass (3DV 2026)
 
 This repository contains the official PyTorch implementation of SceneGen: https://arxiv.org/abs/2508.15769/. 
 
@@ -12,6 +12,7 @@ This repository contains the official PyTorch implementation of SceneGen: https:
 [Project Page](https://mengmouxu.github.io/SceneGen/) $\cdot$ [Paper](https://arxiv.org/abs/2508.15769/) $\cdot$ [Checkpoints](https://huggingface.co/haoningwu/SceneGen/)
 
 ## ⏩ News
+- [2025.11] Glad to share that SceneGen has been accepted to 3DV 2026.
 - [2025.9] Our training code with configs and data processing code are released.
 - [2025.8] The inference code and checkpoints are released.
 - [2025.8] Our pre-print paper has been released on arXiv.
