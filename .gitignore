@@ -1,5 +1,3 @@
 checkpoints/
 tmp/
 __pycache__/
-scenegen_eval.py
-scenegen_eval.sh

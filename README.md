@@ -12,6 +12,7 @@ This repository contains the official PyTorch implementation of SceneGen: https:
 [Project Page](https://mengmouxu.github.io/SceneGen/) $\cdot$ [Paper](https://arxiv.org/abs/2508.15769/) $\cdot$ [Checkpoints](https://huggingface.co/haoningwu/SceneGen/)
 
 ## ⏩ News
+- [2025.11] Evaluation code has been released.
 - [2025.11] Glad to share that SceneGen has been accepted to 3DV 2026.
 - [2025.9] Our training code with configs and data processing code are released.
 - [2025.8] The inference code and checkpoints are released.
@@ -126,8 +127,21 @@ bash scripts/train.sh
 ```
 For detailed training configurations, please refer to `configs/generation/ss_scenegen_flow_img_train.json` and change the parameters as needed.
 
-## Evaluation
-To be updated soon...
+## 🧪 Evaluation
+To generate the 3D scenes on the 3D-FUTURE test set using SceneGen model, use the following command:
+```
+bash scenegen_eval.sh
+```
+which will use the `scenegen_eval.py` script to generate the normalized scenes.
+
+To evaluate the trained SceneGen model on the 3D-FUTURE test set, use the following command:
+```
+cd evalscene
+bash eval_scenegen.sh
+```
+Make sure to have the processed 3D-FUTURE dataset and the rendered images in place as described in the Dataset section and the evaluation configs in `evalscene/configs/test/scene_evaluation_scenegen.yaml` set correctly. Then the evaluation script will compute metrics between the normalized generated scenes and ground truth.
+
+Some packages used in evaluation require additional installation. Please install the packages: `torchmetrics`, `lpips`, `clip` and `probreg` via pip. 
 
 ## 📜 Citation
 If you use this code and data for your research or project, please cite:
@@ -144,7 +158,7 @@ If you use this code and data for your research or project, please cite:
 - [x] Release Checkpoints & Inference Code
 - [x] Release Training Code
 - [x] Release Data Processing Code
-- [ ] Release Evaluation Code
+- [x] Release Evaluation Code
 
 ## Acknowledgements
 Many thanks to the code bases from [TRELLIS](https://github.com/microsoft/TRELLIS), [DINOv2](https://github.com/facebookresearch/dinov2), and [VGGT](https://github.com/facebookresearch/vggt).
