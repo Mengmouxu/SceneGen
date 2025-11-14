@@ -1,0 +1,40 @@
+experiment_name: scene_evaluation
+seed: 42
+system:
+  input_dir: null
+  output_dir: null
+  gpu_num: 1
+  gpu_id: 0
+  save_dir: outputs/eval_results/SceneGen
+  input_format: glb
+  gt_format: glb
+  num_points: 10240
+  device: cuda
+  eval_scene_level: true
+  eval_object_level: true
+  alignment_mode: filterreg
+  scene_alignment: true
+  scene_visualize: false
+  asset_alignment: true
+  asset_visualize: false
+  alignment_max_iterations: 200
+  chunk_size: 10240
+  alignment_tolerance: 1.0e-3
+  fscore_threshold: 0.1
+  render_eval: false
+  dataset_dir: TRELLIS-500K/3D-FUTURE
+  set: test
+  blender_path: /local/blender-3.0.1-linux-x64
+  clip_model_name: ViT-L/14
+  dinov2_model_name: dinov2_vitl14_reg
+  lpips_model_name: alex
+  masked_scene_images_eval: true
+  render_gt_images_eval: true
+
+  filename: metrics_scenegen
+  metrics:
+    - scene_cd
+    - scene_fscore
+    - object_cd
+    - object_fscore
+    - iou_bbox
