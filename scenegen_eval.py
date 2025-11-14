@@ -37,7 +37,7 @@ if __name__ == "__main__":
         test_image_dir = os.path.join(opt.output_dir, f'masked_images_{opt.set}')
         assert os.path.exists(test_image_dir), f"Test image directory {test_image_dir} does not exist"
 
-        scene_output_dir = os.path.join(opt.output_dir, f'scene_{opt.set}_{opt.model_name}_ablation_vggt_scene_mask')
+        scene_output_dir = os.path.join(opt.output_dir, f'scene_{opt.set}_{opt.model_name}')
         os.makedirs(scene_output_dir, exist_ok=True)
 
         scene_ids = os.listdir(test_image_dir)
@@ -52,7 +52,7 @@ if __name__ == "__main__":
 
         if not opt.gradio_only:
             if opt.model_name == 'SceneGen':
-                pipeline = SceneGenImageToScenePipeline.from_pretrained("../TRELLIS-image-large")
+                pipeline = SceneGenImageToScenePipeline.from_pretrained("model_path")
                 pipeline.cuda()
             total_time = 0
             total_assets = 0
