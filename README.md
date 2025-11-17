@@ -145,14 +145,14 @@ Some packages used in evaluation require additional installation. Please install
 
 ## 📜 Citation
 If you use this code and data for your research or project, please cite:
-
+```
    @inproceedings{meng2026scenegen,
      author    = {Meng, Yanxu and Wu, Haoning and Zhang, Ya and Xie, Weidi},
      title     = {SceneGen: Single-Image 3D Scene Generation in One Feedforward Pass},
      booktitle   = {International Conference on 3D Vision 2026},
      year      = {2026},
    }
-
+```
 ## TODO
 - [x] Release Paper
 - [x] Release Checkpoints & Inference Code
