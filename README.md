@@ -2,7 +2,7 @@
 
 This repository contains the official PyTorch implementation of SceneGen: https://arxiv.org/abs/2508.15769/. 
 
-**Now the Training, Inference Code and Pretrained Models have all been released! Feel free to reach out for discussions!**
+**Now the Training, Inference Code, and Pretrained Models have all been released! Feel free to reach out for discussions!**
 
 <div align="center">
    <img src="./assets/SceneGen.png">
@@ -14,7 +14,7 @@ This repository contains the official PyTorch implementation of SceneGen: https:
 ## ⏩ News
 - [2025.11] Evaluation code has been released.
 - [2025.11] Glad to share that SceneGen has been accepted to 3DV 2026.
-- [2025.9] Our training code with configs and data processing code are released.
+- [2025.9] Our training code and data processing code are released.
 - [2025.8] The inference code and checkpoints are released.
 - [2025.8] Our pre-print paper has been released on arXiv.
 
@@ -78,7 +78,7 @@ This script launches a Gradio web interface for interactive scene generation.
   >
   > ### 🗃️ Step 2: Manage Cache
   > 1.  Click **"Add to Cache"** when satisfied with the segmentation.
-  > 2.  Repeat Step 1-2 for multiple images.
+  > 2.  Repeat Steps 1-2 for multiple images.
   > 3.  Use **"Delete Selected"** or **"Clear All"** to manage cached images.
   >
   > ### 🎮 Step 3: Generate Scene
@@ -128,7 +128,7 @@ bash scripts/train.sh
 For detailed training configurations, please refer to `configs/generation/ss_scenegen_flow_img_train.json` and change the parameters as needed.
 
 ## 🧪 Evaluation
-To generate the 3D scenes on the 3D-FUTURE test set using SceneGen model, use the following command:
+To generate the 3D scenes on the 3D-FUTURE test set using the SceneGen model, use the following command:
 ```
 bash scenegen_eval.sh
 ```
@@ -139,9 +139,9 @@ To evaluate the trained SceneGen model on the 3D-FUTURE test set, use the follow
 cd evalscene
 bash eval_scenegen.sh
 ```
-Make sure to have the processed 3D-FUTURE dataset and the rendered images in place as described in the Dataset section and the evaluation configs in `evalscene/configs/test/scene_evaluation_scenegen.yaml` set correctly. Then the evaluation script will compute metrics between the normalized generated scenes and ground truth.
+Make sure to have the processed 3D-FUTURE dataset and the rendered images in place as described in the Dataset section and the evaluation configs in `evalscene/configs/test/scene_evaluation_scenegen.yaml` set correctly. Then the evaluation script will compute metrics between the normalized generated scenes and the ground truth.
 
-Some packages used in evaluation require additional installation. Please install the packages: `torchmetrics`, `lpips`, `clip` and `probreg` via pip. 
+Some packages used in the evaluation require additional installation. Please install the packages: `torchmetrics`, `lpips`, `clip`, and `probreg` via pip. 
 
 ## 📜 Citation
 If you use this code and data for your research or project, please cite:
