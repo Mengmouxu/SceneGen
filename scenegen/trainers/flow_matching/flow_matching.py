@@ -246,12 +246,15 @@ class FlowMatchingTrainer(BasicTrainer):
                     numerator = x_t - _sigma_t * pred / (1 - self.sigma_min)
                     denominator = (1 - _t_reshaped) + _sigma_t / (1 - self.sigma_min)
                     x_0_pred = numerator / denominator
-                    
+                    with torch.no_grad():
+                        dec_logits = self.ss_dec(x_0_pred)
+                    occ_mask = dec_logits > 0.0
+
                     scene_positions = []
                     assets_points_num = []
                     for i in range(x_0_pred.shape[0]):
-                        coords_i = torch.nonzero(x_0[i, 0] > 0, as_tuple=False)
-                        resolution = x_0.shape[-1]
+                        coords_i = torch.nonzero(occ_mask[i], as_tuple=False)
+                        resolution = occ_mask.shape[-1]
                         org_position = coords_i.float() / resolution
                         if i != 0:
                             translation = positions[i, 0:3].float()
@@ -290,7 +293,7 @@ class FlowMatchingTrainer(BasicTrainer):
                         (x_max + x_min) / 2, 
                         (y_max + y_min) / 2, 
                         (z_max + z_min) / 2
-                    ], device='cuda')
+                    ], device=scene_positions.device)
                     scene_positions = (scene_positions - center) / edge_length + 0.5
 
                     # Define a resolution for voxelization
